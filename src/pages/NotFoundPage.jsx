@@ -3,35 +3,26 @@ import { Link } from "react-router-dom";
 export function NotFoundPage() {
   return (
     <div className="min-h-[calc(100dvh-4rem)] md:min-h-screen flex items-center justify-center bg-background px-4 py-4 md:py-6 overflow-x-hidden">
-      {/* Museum Wall Background */}
       <div className="relative">
-        {/* Spotlight effect */}
         <div 
           className="absolute -inset-20 bg-gradient-radial from-accent/20 via-transparent to-transparent opacity-60 pointer-events-none"
           aria-hidden="true"
         />
         
-        {/* Picture Frame - Contemporary Style */}
         <div className="relative">
-          {/* Outer Frame - Dark wood effect */}
           <div className="absolute -inset-4 sm:-inset-6 bg-gradient-to-br from-neutral-800 via-neutral-900 to-neutral-950 shadow-2xl" />
           
-          {/* Frame Bevel - Gold accent */}
           <div className="absolute -inset-3 sm:-inset-5 bg-gradient-to-br from-amber-700/80 via-amber-600/60 to-amber-800/80" />
           
-          {/* Inner Frame Border */}
           <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-950" />
           
-          {/* Mat/Passepartout */}
           <div className="absolute -inset-1 sm:-inset-2 bg-gradient-to-br from-stone-100 via-white to-stone-50" />
           
-          {/* The "Canvas" - The actual artwork */}
           <div 
             className="relative bg-gradient-to-br from-stone-50 via-white to-stone-100 w-[min(90vw,760px)] aspect-[4/5] sm:aspect-[3/2] lg:aspect-[16/9] px-4 sm:px-8 md:px-10 py-4 sm:py-6"
             role="img"
             aria-label="Obra de arte conceptual: Página no encontrada"
           >
-            {/* Canvas texture overlay */}
             <div 
               className="absolute inset-0 opacity-[0.03] pointer-events-none"
               style={{
@@ -40,7 +31,6 @@ export function NotFoundPage() {
               aria-hidden="true"
             />
             
-            {/* Artwork Content */}
             <div className="relative h-full flex items-center justify-center">
               <div className="grid w-full max-w-2xl grid-cols-1 items-center gap-4 sm:gap-6">
                 <div className="flex justify-center">
@@ -94,7 +84,6 @@ export function NotFoundPage() {
           </div>
         </div>
         
-        {/* Subtle floor shadow */}
         <div 
           className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-3/4 h-8 bg-gradient-to-t from-neutral-200/30 to-transparent blur-xl rounded-full"
           aria-hidden="true"
