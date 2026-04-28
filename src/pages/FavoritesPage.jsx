@@ -48,7 +48,7 @@ function FavoriteCard({ artwork }) {
                 },
               });
             }}
-            className="absolute right-3 top-3 border border-border bg-background-soft p-2 text-accent backdrop-blur-sm transition-all duration-200 hover:bg-background-soft-hover"
+            className="absolute right-3 top-3 bg-background-soft p-2 text-accent backdrop-blur-sm transition-all duration-200 hover:bg-background-soft-hover"
             aria-label={`Quitar ${artwork.title} de favoritos`}
           >
             <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">

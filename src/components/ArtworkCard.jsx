@@ -44,7 +44,7 @@ export function ArtworkCard({ artwork }) {
           )}
           <button
             onClick={handleFavoriteToggle}
-            className={`absolute right-3 top-3 border border-border bg-background-soft p-2 backdrop-blur-sm transition-all duration-200 hover:bg-background-soft-hover ${
+            className={`absolute right-3 top-3 bg-background-soft p-2 backdrop-blur-sm transition-all duration-200 hover:bg-background-soft-hover ${
               isFavorite(artwork.id) ? "text-accent" : "text-muted-foreground"
             }`}
             aria-label={

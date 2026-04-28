@@ -21,6 +21,7 @@
   --muted-foreground: #7f7c78;
   --accent: #b26a46;
   --accent-foreground: #f8f6f3;
+  --favorite-border: #c8ad9b;
   --destructive: #b74d45;
   --destructive-foreground: #f8f6f3;
   --border: #dddad4;
@@ -125,6 +126,9 @@
   }
   .border-border {
     border-color: var(--border);
+  }
+  .border-favorite {
+    border-color: var(--favorite-border);
   }
   .focus\:ring-ring:focus {
     --tw-ring-color: var(--ring);

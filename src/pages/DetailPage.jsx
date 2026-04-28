@@ -124,9 +124,9 @@ export function DetailPage() {
               }}
               className={`mb-12 inline-flex items-center gap-3 border px-6 py-3 text-sm tracking-wider transition-all duration-200 ${
                 isFavorite(artwork.id)
-                  ? "border-accent bg-accent text-accent-foreground"
-                  : "border-border bg-background-soft hover:bg-background-soft-hover"
-               }`}
+                  ? "border-favorite bg-accent text-accent-foreground"
+                  : "border-favorite bg-background-soft hover:bg-background-soft-hover"
+                }`}
               aria-pressed={isFavorite(artwork.id)}
             >
               <svg className="h-5 w-5" fill={isFavorite(artwork.id) ? "currentColor" : "none"} viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
