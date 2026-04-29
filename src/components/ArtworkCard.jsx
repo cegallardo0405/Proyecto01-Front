@@ -5,19 +5,20 @@ export function ArtworkCard({ artwork }) {
   const { isFavorite, addFavorite, removeFavorite } = useFavorites();
   const { showToast } = useToast();
   const imageUrl = artwork.image_id ? `https://www.artic.edu/iiif/2/${artwork.image_id}/full/400,/0/default.jpg` : null;
+  const favoriteActive = isFavorite(artwork.id);
 
-  const handleFavoriteToggle = (e) => {
+  function handleFavoriteToggle(e) {
     e.preventDefault();
     e.stopPropagation();
 
-    if (isFavorite(artwork.id)) {
+    if (favoriteActive) {
       removeFavorite(artwork.id);
       showToast("info", "Obra removida de favoritos");
     } else {
       addFavorite(artwork);
       showToast("success", "Obra agregada a favoritos");
     }
-  };
+  }
 
   return (
     <article className="group relative">
@@ -45,13 +46,13 @@ export function ArtworkCard({ artwork }) {
           <button
             onClick={handleFavoriteToggle}
             className={`absolute right-3 top-3 bg-background-soft p-2 backdrop-blur-sm transition-all duration-200 hover:bg-background-soft-hover ${
-              isFavorite(artwork.id) ? "text-accent" : "text-muted-foreground"
+              favoriteActive ? "text-accent" : "text-muted-foreground"
             }`}
             aria-label={
-              isFavorite(artwork.id) ? `Quitar ${artwork.title} de favoritos` : `Agregar ${artwork.title} a favoritos`
+              favoriteActive ? `Quitar ${artwork.title} de favoritos` : `Agregar ${artwork.title} a favoritos`
             }
           >
-            <svg className="h-5 w-5" fill={isFavorite(artwork.id) ? "currentColor" : "none"} viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+            <svg className="h-5 w-5" fill={favoriteActive ? "currentColor" : "none"} viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"

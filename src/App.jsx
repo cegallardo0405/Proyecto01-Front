@@ -78,6 +78,11 @@ export default function App() {
     setConfirmOptions(null);
   }, []);
 
+  function handleConfirm() {
+    confirmOptions.onConfirm();
+    closeConfirm();
+  }
+
   return (
     <BrowserRouter>
       <ScrollToTop />
@@ -111,10 +116,7 @@ export default function App() {
                 message={confirmOptions.message}
                 confirmText={confirmOptions.confirmText}
                 cancelText={confirmOptions.cancelText}
-                onConfirm={() => {
-                  confirmOptions.onConfirm();
-                  closeConfirm();
-                }}
+                onConfirm={handleConfirm}
                 onCancel={closeConfirm}
                 isDarkPattern={confirmOptions.isDarkPattern}
               />

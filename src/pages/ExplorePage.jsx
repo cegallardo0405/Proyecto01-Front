@@ -27,7 +27,7 @@ export function ExplorePage() {
   const [totalPages, setTotalPages] = useState(1);
   const [totalResults, setTotalResults] = useState(0);
 
-  const fetchArtworks = async (page = 1) => {
+  async function fetchArtworks(page = 1) {
     setIsLoading(true);
     setError(null);
 
@@ -63,7 +63,38 @@ export function ExplorePage() {
     } finally {
       setIsLoading(false);
     }
-  };
+  }
+
+  function handleSearchSubmit(e) {
+    e.preventDefault();
+    setCurrentPage(1);
+    fetchArtworks(1);
+  }
+
+  function clearDepartmentFilter() {
+    setSelectedDepartment(null);
+    setCurrentPage(1);
+  }
+
+  function changeDepartmentFilter(value) {
+    setSelectedDepartment(value);
+    setCurrentPage(1);
+  }
+
+  function goToPreviousPage() {
+    setCurrentPage((p) => p - 1);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function goToNextPage() {
+    setCurrentPage((p) => p + 1);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function goToPage(page) {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 
   useEffect(() => {
     fetchArtworks(currentPage);
@@ -81,15 +112,7 @@ export function ExplorePage() {
             </p>
           </div>
 
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              setCurrentPage(1);
-              fetchArtworks(1);
-            }}
-            className="mx-auto max-w-2xl"
-            role="search"
-          >
+          <form onSubmit={handleSearchSubmit} className="mx-auto max-w-2xl" role="search">
             <div className="flex gap-3">
               <div className="relative flex-1">
                 <label htmlFor="search-input" className="sr-only">
@@ -119,10 +142,7 @@ export function ExplorePage() {
             {DEPARTMENTS.map((dept) => (
               <button
                 key={dept.label}
-                onClick={() => {
-                  setSelectedDepartment(dept.value);
-                  setCurrentPage(1);
-                }}
+                onClick={() => changeDepartmentFilter(dept.value)}
                 className={`border px-4 py-2 text-xs uppercase tracking-wider transition-all duration-200 ${
                   selectedDepartment === dept.value
                     ? "border-primary bg-primary text-primary-foreground"
@@ -147,10 +167,7 @@ export function ExplorePage() {
               </p>
               {selectedDepartment && (
                 <button
-                  onClick={() => {
-                    setSelectedDepartment(null);
-                    setCurrentPage(1);
-                  }}
+                  onClick={clearDepartmentFilter}
                   className="flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-foreground"
                 >
                   <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -186,10 +203,7 @@ export function ExplorePage() {
               {totalPages > 1 && (
                 <nav className="mt-12 flex items-center justify-center gap-2" aria-label="Paginacion">
                   <button
-                    onClick={() => {
-                      setCurrentPage((p) => p - 1);
-                      window.scrollTo({ top: 0, behavior: "smooth" });
-                    }}
+                    onClick={goToPreviousPage}
                     disabled={currentPage === 1}
                     className="border border-border p-2 transition-colors hover:bg-secondary disabled:cursor-not-allowed disabled:opacity-30"
                     aria-label="Pagina anterior"
@@ -210,10 +224,7 @@ export function ExplorePage() {
                       return (
                         <button
                           key={pageNum}
-                          onClick={() => {
-                            setCurrentPage(pageNum);
-                            window.scrollTo({ top: 0, behavior: "smooth" });
-                          }}
+                          onClick={() => goToPage(pageNum)}
                           className={`h-10 w-10 border text-sm font-medium transition-colors ${
                             currentPage === pageNum
                               ? "border-primary bg-primary text-primary-foreground"
@@ -229,10 +240,7 @@ export function ExplorePage() {
                   </div>
 
                   <button
-                    onClick={() => {
-                      setCurrentPage((p) => p + 1);
-                      window.scrollTo({ top: 0, behavior: "smooth" });
-                    }}
+                    onClick={goToNextPage}
                     disabled={currentPage === totalPages}
                     className="border border-border p-2 transition-colors hover:bg-secondary disabled:cursor-not-allowed disabled:opacity-30"
                     aria-label="Pagina siguiente"

@@ -14,8 +14,8 @@ export function Footer() {
               <span className="font-serif text-xl font-semibold tracking-tight">ARTIC</span>
             </NavLink>
             <p className="max-w-md text-sm leading-relaxed text-muted-foreground">
-              Explorando la belleza del arte a traves de la coleccion del Art Institute of Chicago. Una ventana al
-              patrimonio artistico de la humanidad.
+              Explorando la belleza del arte a través de la colección del Art Institute of Chicago. Una ventana al
+              patrimonio artístico de la humanidad.
             </p>
           </div>
 
@@ -33,7 +33,7 @@ export function Footer() {
                     to="/explorar"
                     className="link-elegant text-sm text-muted-foreground transition-colors hover:text-foreground"
                   >
-                    Explorar Coleccion
+                    Explorar Colección
                   </NavLink>
                 </li>
                 <li>
@@ -87,7 +87,7 @@ export function Footer() {
 
         <div className="mt-12 border-t border-border pt-8">
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
-            <p className="text-xs text-muted-foreground">{currentYear} Galeria ARTIC. Proyecto educativo.</p>
+            <p className="text-xs text-muted-foreground">{currentYear} Galeráa ARTIC. Proyecto educativo.</p>
             <p className="text-xs text-muted-foreground">Datos proporcionados por la API del Art Institute of Chicago</p>
           </div>
         </div>

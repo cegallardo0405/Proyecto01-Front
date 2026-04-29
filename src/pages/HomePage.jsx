@@ -51,7 +51,7 @@ export function HomePage() {
             <span className="font-semibold italic">Cobra Vida</span>
           </h1>
           <p className="text-pretty mx-auto mb-12 max-w-2xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
-            Explora mas de 300,000 obras de arte de todas las epocas y culturas. Una coleccion que trasciende el tiempo
+            Explora más de 300,000 obras de arte de todas las ápocas y culturas. Una colección que trasciende el tiempo
             y el espacio.
           </p>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -59,7 +59,7 @@ export function HomePage() {
               to="/explorar"
               className="inline-flex min-w-[200px] items-center justify-center bg-primary px-8 py-4 text-sm uppercase tracking-widest text-primary-foreground transition-all duration-300 hover:bg-primary/90"
             >
-              Explorar Coleccion
+              Explorar Colección
             </Link>
             <Link
               to="/contacto"
@@ -114,7 +114,7 @@ export function HomePage() {
               to="/explorar"
               className="link-elegant inline-flex items-center gap-2 text-sm uppercase tracking-widest text-muted-foreground transition-colors hover:text-foreground"
             >
-              Ver toda la coleccion
+              Ver toda la colección
               <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
@@ -127,7 +127,7 @@ export function HomePage() {
         <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
           <blockquote>
             <p className="text-balance font-serif text-2xl font-light italic leading-relaxed sm:text-3xl md:text-4xl">
-              {"\""}El arte no es lo que ves, sino lo que haces ver a los demas.{"\""}
+              {"\""}El arte no es lo que ves, sino lo que haces ver a los demás.{"\""}
             </p>
             <footer className="mt-8">
               <cite className="text-sm uppercase tracking-widest text-muted-foreground not-italic">— Edgar Degas</cite>
@@ -141,9 +141,9 @@ export function HomePage() {
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4 md:gap-12">
             {[
               { number: "300K+", label: "Obras de Arte" },
-              { number: "5000+", label: "Anos de Historia" },
+              { number: "5000+", label: "Años de Historia" },
               { number: "80+", label: "Galerias" },
-              { number: "1879", label: "Ano de Fundacion" },
+              { number: "1879", label: "Año de Fundacion" },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
                 <p className="font-serif text-3xl font-light tracking-tight sm:text-4xl md:text-5xl">{stat.number}</p>

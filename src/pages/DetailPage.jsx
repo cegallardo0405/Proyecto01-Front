@@ -35,6 +35,17 @@ export function DetailPage() {
     fetchArtwork();
   }, [id]);
 
+  function handleFavoriteClick() {
+    if (isFavorite(artwork.id)) {
+      removeFavorite(artwork.id);
+      showToast("info", "Obra removida de favoritos");
+      return;
+    }
+
+    addFavorite(artwork);
+    showToast("success", "Obra agregada a favoritos");
+  }
+
   if (isLoading) return <LoadingSkeleton />;
   if (error) {
     return (
@@ -113,15 +124,7 @@ export function DetailPage() {
             <p className="mb-8 text-lg text-muted-foreground">{artwork.artist_display || "Artista desconocido"}</p>
 
             <button
-              onClick={() => {
-                if (isFavorite(artwork.id)) {
-                  removeFavorite(artwork.id);
-                  showToast("info", "Obra removida de favoritos");
-                } else {
-                  addFavorite(artwork);
-                  showToast("success", "Obra agregada a favoritos");
-                }
-              }}
+              onClick={handleFavoriteClick}
               className={`mb-12 inline-flex items-center gap-3 border px-6 py-3 text-sm tracking-wider transition-all duration-200 ${
                 isFavorite(artwork.id)
                   ? "border-favorite bg-accent text-accent-foreground"
